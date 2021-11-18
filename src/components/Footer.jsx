@@ -8,14 +8,14 @@ const Footer = () => {
       </div>
       <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li className="ms-3">
-          <Link href="https://github.com/Samuelcs131">
+          <Link href="https://www.linkedin.com/in/samuelcs131">
             <a target="_blank" className="text-muted" aria-label="icone linkedin">
               <i aria-hidden className="text-light fab fa-linkedin"></i>
             </a>
           </Link>
         </li>
         <li className="ms-3">
-          <Link href="https://www.linkedin.com/in/samuelcs131/">
+          <Link href="https://github.com/Samuelcs131">
             <a target="_blank" className="text-muted" aria-label="icone github">  
               <i aria-hidden className="text-light fab fa-github" ></i>
             </a>

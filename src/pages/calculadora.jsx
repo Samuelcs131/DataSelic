@@ -21,6 +21,9 @@ const invest3 = companiesData.filter(companie =>  companie.empresa == 'XP invest
 const [dataForm, setDataForm] = useState({
   taxSelic: dataSelic.replace(',','.'),
   taxCDB: invest1.cdi,
+  monthInvest: 0,
+  yearInvest: 0,
+  dayInvest: 0
 })
 
 /* RECEBE DADOS DO FORMULARIO */
@@ -30,7 +33,7 @@ function handleDataForm(value){
 })}
 
 /* ADICIONA ACTIVE-OPTION NA CLASSE */
-const sizeOptionInvest = {height: '50px',width:'50px',userSelect: 'none'}
+const sizeOptionInvest = {height: '50px',width:'50px',userSelect: 'none', cursor: 'pointer'}
 useEffect(()=>{
   const list =  document.querySelectorAll('.option-invest')
 
@@ -45,8 +48,65 @@ useEffect(()=>{
 }
 })
 
+// CALCULO INVESTIMENTO 
+function calculatorInvest(event){
 
- 
+const formCalculator = document.querySelector('#result-calculator')
+
+// SOMA DATA
+let sumTimeMonth = Number(
+(Number(dataForm.dayInvest)/30) + 
+ Number(dataForm.monthInvest) + 
+(Number(dataForm.yearInvest)*12))
+
+// SOMA DA TAXA SELIC
+let sumInterestRate =  Number(
+(((1+(Number(dataForm.taxSelic)/100))**(1/12))-1)*100) * (Number(dataForm.taxCDB)/100)
+
+// CALCULO MONTANTE 
+let grossReturn = Number(Number(dataForm.valueInvest) * (1+(sumInterestRate/100))**sumTimeMonth)
+let juros = Number(grossReturn - dataForm.valueInvest)
+
+
+// JUROS IR (IMPOSTO DE RENDA)
+let resultInterestIR = 0
+
+if(sumTimeMonth <= 6){
+  resultInterestIR = juros * 0.225 
+} else if(sumTimeMonth <= 12){
+  resultInterestIR = juros * 0.20
+} else {
+  resultInterestIR = juros * 0.175
+}
+
+console.log('Imposto de renda: '+ resultInterestIR)
+
+// JUROS IOF (IMPOSTO SOBRE OPERAÇÕES FINANCEIRAS)
+const rateIOF = [0,0.96,0.93,0.90,0.86,0.83,0.80,0.76,0.73,0.70,0.66,0.63,0.60,0.56,0.53,0.50,0.46,0.43,0.40,0.36,0.33,0.30,0.26,0.23,0.20,0.16,0.13,0.10,0.06,0.03,0]
+
+let resultInterestIOF = 0
+
+if( (sumTimeMonth*30) <= 29 ){
+   resultInterestIOF = Number(resultInterestIR) * Number(rateIOF[sumTimeMonth*30])  
+} else {
+   resultInterestIOF = Number(resultInterestIR)
+}
+
+let liquidReturn = grossReturn - resultInterestIOF
+
+// RESULTADO
+formCalculator.innerHTML = 
+`<div class="card bg-dark mt-3">
+<div class="card-body">
+<p>Retorno Bruto: <b>R$ ${grossReturn.toFixed(2).replace('.',',')}</b></p>
+<p>Imposto de Renda: <b>R$ ${resultInterestIOF.toFixed(2).replace('.',',')}</b></p>
+<p>Retorno Líquido: <b>R$ ${liquidReturn.toFixed(2).replace('.',',')}</b></p>
+</div>
+</div>` 
+
+event.preventDefault()
+}
+
 /* PAGE */
   return (
     <>
@@ -92,30 +152,30 @@ useEffect(()=>{
     <div className="col-md-7 col-lg-8">
     <h4 className="mb-3">Calculadora</h4>
     <div className="card bg-secondary mb-5 text-white">
-      <form className="card-body">
+      <form className="card-body" id="form-calculator">
         <div className="mb-3">
           <label htmlFor="valueInvest">Valor investimento</label>
-          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1" placeholder="Ex: 1000" onChange={handleDataForm}/>
+          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1" placeholder="Ex: 1000" onChange={handleDataForm} required/>
         </div> 
           
         <label htmlFor="prazo">Prazo</label>
         <div className="input-group mb-3 mt-1">
           <span className="input-group-text">Dia</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" onChange={handleDataForm}/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" value={dataForm.dayInvest} onChange={handleDataForm} required/>
           <span className="input-group-text">Mês</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 12" aria-label="Mês investimento" name="MonthInvest" onChange={handleDataForm}/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 12" aria-label="Mês investimento" name="monthInvest" value={dataForm.monthInvest} onChange={handleDataForm} required/>
           <span className="input-group-text">Ano</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 1" aria-label="Ano investimento" name="YearInvest" onChange={handleDataForm}/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 1" aria-label="Ano investimento" name="yearInvest" value={dataForm.yearInvest} onChange={handleDataForm} required/>
         </div>
  
         <div className="mb-3">
           <label htmlFor="taxSelic">Taxa selic</label>
-          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm}/>
+          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm} required/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="taxCDB">Taxa do CDB/LC</label>
-          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm}/>
+          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm} required/>
         </div>
          
         <div className="d-flex">
@@ -133,7 +193,10 @@ useEffect(()=>{
           
           </div>
             <hr />
-        <button className="btn btn-light">Calcular investimento</button>
+        <button className="btn btn-light" onClick={calculatorInvest}>Calcular investimento</button>
+          <div id="result-calculator">
+          
+          </div>
       </form>
     </div>
     </div> 
