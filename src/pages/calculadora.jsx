@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 
 const App = ({dataSelic, dataIPCA, companiesData}) => { 
 
+ 
+
 /* JUROS EFETIVO */
 const effectiveInterest = (dataSelic.replace(',','.') - dataIPCA.replace(',','.')).toFixed(2).replace('.',',')
 
@@ -183,27 +185,27 @@ formCalculator.innerHTML =
       <form className="card-body" id="form-calculator">
         <div className="mb-3">
           <label htmlFor="valueInvest">Valor investimento</label>
-          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1" placeholder="Ex: 1000" onChange={handleDataForm} min="0" required/>
+          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1 shadow-white" placeholder="Ex: 1000" onChange={handleDataForm} min="0" required/>
         </div> 
           
         <label htmlFor="prazo">Prazo</label>
         <div className="input-group mb-3 mt-1">
           <span className="input-group-text">Dia</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" value={dataForm.dayInvest} onChange={handleDataForm} min="0"  required/>
+          <input type="number" className="form-control bg-dark text-white shadow-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" value={dataForm.dayInvest} onChange={handleDataForm} min="0"  required/>
           <span className="input-group-text">Mês</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 12" aria-label="Mês investimento" name="monthInvest" value={dataForm.monthInvest} onChange={handleDataForm} min="0"  required/>
+          <input type="number" className="form-control bg-dark text-white shadow-white" placeholder="Ex: 12" aria-label="Mês investimento" name="monthInvest" value={dataForm.monthInvest} onChange={handleDataForm} min="0"  required/>
           <span className="input-group-text">Ano</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 1" aria-label="Ano investimento" name="yearInvest" value={dataForm.yearInvest} onChange={handleDataForm} min="0"  required/>
+          <input type="number" className="form-control bg-dark text-white shadow-white" placeholder="Ex: 1" aria-label="Ano investimento" name="yearInvest" value={dataForm.yearInvest} onChange={handleDataForm} min="0"  required/>
         </div>
  
         <div className="mb-3">
           <label htmlFor="taxSelic">Taxa selic</label>
-          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm}  required/>
+          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1 shadow-white" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm}  required/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="taxCDB">Taxa do CDB/LC</label>
-          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm} min="0"  required/>
+          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1 shadow-white" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm} min="0"  required/>
         </div>
          
         {/* OPÇÕES INVESTIMENTOS */}
