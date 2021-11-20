@@ -35,7 +35,7 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
               <li>Min R${thirdInvest.vMin}</li>
               <li>{thirdInvest.prazo}</li>
             </ul> 
-            <Link href={thirdInvest.site}><a target="_blank" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
+            <Link href={thirdInvest.site}><a target="_blank" rel="noopener" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
               <li>Min R${secondInvest.vMin}</li>
               <li>{secondInvest.prazo}</li>
             </ul>
-            <Link href={secondInvest.site}><a target="_blank" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
+            <Link href={secondInvest.site}><a target="_blank" rel="noopener" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
               <li>Min R${firstInvest.vMin}</li>
               <li>{firstInvest.prazo}</li>
             </ul>
-            <Link href={firstInvest.site}><a target="_blank" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
+            <Link href={firstInvest.site}><a target="_blank" rel="noopener" type="button" className="w-100 btn btn-lg btn-outline-light">Ver mais</a></Link>
           </div>
         </div>
       </div>
@@ -82,9 +82,9 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
         <thead>
           <tr>
             <th style={{width: '34%'}}></th>
-            <th style={{width: '22%'}}><Link href={sixInvest.site}><a  target="_blank" className="link-light">{sixInvest.empresa}</a></Link></th>
-            <th style={{width: '22%'}}><Link href={fifthInvest.site}><a  target="_blank" className="link-light">{fifthInvest.empresa}</a></Link></th>
-            <th style={{width: '22%'}}><Link href={fourthInvest.site}><a  target="_blank" className="link-light">{fourthInvest.empresa}</a></Link></th>
+            <th style={{width: '22%'}}><Link href={sixInvest.site}><a  target="_blank" rel="noopener" className="link-light">{sixInvest.empresa}</a></Link></th>
+            <th style={{width: '22%'}}><Link href={fifthInvest.site}><a  target="_blank" rel="noopener" className="link-light">{fifthInvest.empresa}</a></Link></th>
+            <th style={{width: '22%'}}><Link href={fourthInvest.site}><a  target="_blank" rel="noopener" className="link-light">{fourthInvest.empresa}</a></Link></th>
           </tr>
         </thead>
         <tbody>

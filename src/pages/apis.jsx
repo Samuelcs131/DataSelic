@@ -29,7 +29,7 @@ const Invest = () => {
             <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Dados Selic coletados em tempo real</h2>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-                <Image src="/img/logo-dataselic.svg" alt="Bootstrap" width="32" height="32" />
+                <Image src="/img/logo-dataselic-white.svg" alt="logo data selic" width="32" height="32" />
               </li>
               <li className="d-flex align-items-center me-3">
               <i className="fas fa-university me-2"></i>
@@ -40,7 +40,7 @@ const Invest = () => {
                 <small>2021</small>
               </li>
             </ul>
-            <Link href="https://dadosabertos.bcb.gov.br/dataset/4189-taxa-de-juros---selic-acumulada-no-mes-anualizada-base-252/resource/091e3cb3-4dca-488b-a89d-6c9bb56c9a99"><a target="_blank" className="stretched-link"></a></Link>
+            <Link href="https://dadosabertos.bcb.gov.br/dataset/4189-taxa-de-juros---selic-acumulada-no-mes-anualizada-base-252/resource/091e3cb3-4dca-488b-a89d-6c9bb56c9a99"><a target="_blank" rel="noopener" className="stretched-link"></a></Link>
           </div>
         </div>
       </div> 
@@ -52,7 +52,7 @@ const Invest = () => {
             <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Informação sobre a desvalorização do real</h2>
             <ul className="d-flex list-unstyled mt-auto">
               <li className="me-auto">
-                <Image src="/img/logo-dataselic.svg" alt="Bootstrap" width="32" height="32" />
+                <Image src="/img/logo-dataselic-white.svg" alt="logo data selic" width="32" height="32" />
               </li>
               <li className="d-flex align-items-center me-3">
               <i className="fas fa-university me-2"></i>
@@ -63,7 +63,7 @@ const Invest = () => {
                 <small>2021</small>
               </li>
             </ul>
-            <Link href="https://dados.gov.br/dataset/ia-indice-nacional-de-precos-ao-consumidor-amplo-ipca/resource/c2c5d52f-4b7d-4f07-a26c-5614b2b54c1e?inner_span=True"><a target="_blank" className="stretched-link"></a></Link>
+            <Link href="https://dados.gov.br/dataset/ia-indice-nacional-de-precos-ao-consumidor-amplo-ipca/resource/c2c5d52f-4b7d-4f07-a26c-5614b2b54c1e?inner_span=True"><a target="_blank" rel="noopener" className="stretched-link"></a></Link>
           </div>
         </div>
       </div>
