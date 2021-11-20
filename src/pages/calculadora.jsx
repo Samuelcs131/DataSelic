@@ -45,9 +45,9 @@ useEffect(()=>{
     list[i].addEventListener('click', ()=> {
         let j = 0;
         while(j < list.length){
-            list[j++].className = 'bg-dark d-flex rounded-circle align-items-center me-3 justify-content-center'
+            list[j++].className = 'mb-2 bg-dark d-flex rounded-circle align-items-center me-3 justify-content-center'
         }
-        list[i].className = 'bg-dark d-flex rounded-circle align-items-center me-3 border border-light justify-content-center'
+        list[i].className = 'mb-2 bg-dark d-flex rounded-circle align-items-center me-3 border border-light justify-content-center'
     })
 }
 })
