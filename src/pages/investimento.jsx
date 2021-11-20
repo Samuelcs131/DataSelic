@@ -82,9 +82,9 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
         <thead>
           <tr>
             <th style={{width: '34%'}}></th>
-            <th style={{width: '22%'}}>{sixInvest.empresa}</th>
-            <th style={{width: '22%'}}>{fifthInvest.empresa}</th>
-            <th style={{width: '22%'}}>{fourthInvest.empresa}</th>
+            <th style={{width: '22%'}}><Link href={sixInvest.site}><a  target="_blank" className="link-light">{sixInvest.empresa}</a></Link></th>
+            <th style={{width: '22%'}}><Link href={fifthInvest.site}><a  target="_blank" className="link-light">{fifthInvest.empresa}</a></Link></th>
+            <th style={{width: '22%'}}><Link href={fourthInvest.site}><a  target="_blank" className="link-light">{fourthInvest.empresa}</a></Link></th>
           </tr>
         </thead>
         <tbody>

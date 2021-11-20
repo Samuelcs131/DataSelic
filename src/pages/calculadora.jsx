@@ -46,9 +46,6 @@ useEffect(()=>{
         list[i].className = 'bg-dark d-flex rounded-circle align-items-center me-3 border border-light justify-content-center'
     })
 }
-
-
-
 })
 
 
