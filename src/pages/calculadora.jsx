@@ -208,27 +208,27 @@ formCalculator.innerHTML =
          
         {/* OPÇÕES INVESTIMENTOS */}
         <div className="d-flex row mx-1">
-          <div className="mb-1 option-invest bg-dark d-flex rounded-circle align-items-center me-3 justify-content-center border border-light" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest1.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex rounded-circle align-items-center me-3 justify-content-center border border-light" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest1.cdi,}) })}>
           <Image src={invest1.image} alt={invest1.empresa} width="30px" height="30px" title={invest1.empresa}/>
           </div>
 
-          <div className="mb-1 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest2.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest2.cdi,}) })}>
           <Image src={invest2.image} alt={invest2.empresa} width="35px" height="35px" title={invest2.empresa}/>
           </div>
 
-          <div className="mb-1 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest3.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest3.cdi,}) })}>
           <Image src={invest3.image} alt={invest3.empresa} width="30px" height="30px" title={invest3.empresa}/>
           </div> 
           
-          <div className="mb-1 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest4.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest4.cdi,}) })}>
           <Image src={invest4.image} alt={invest4.empresa} width="30px" height="30px" title={invest4.empresa} />
           </div> 
           
-          <div className="mb-1 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest5.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest5.cdi,}) })}>
           <Image src={invest5.image} alt={invest5.empresa} width="32px" height="32px" title={invest5.empresa} />
           </div> 
           
-          <div className="mb-1 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest6.cdi,}) })}>
+          <div className="mb-2 option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest6.cdi,}) })}>
           <Image src={invest6.image} alt={invest6.empresa} width="30px" height="30px" title={invest6.empresa} />
           </div> 
           
