@@ -9,7 +9,7 @@ const Invest = () => {
   return ( 
         <>
         <Head>
-      <title>DataSelic - Moedas</title>
+      <title>DataSelic - APIs</title>
     </Head>
         <div className="container">
           <Navbar/>
