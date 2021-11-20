@@ -46,13 +46,16 @@ useEffect(()=>{
         list[i].className = 'bg-dark d-flex rounded-circle align-items-center me-3 border border-light justify-content-center'
     })
 }
+
+
+
 })
 
-// CALCULO INVESTIMENTO 
+
+// CALCULO INVESTIMENTO
+  
 function calculatorInvest(event){
-
-const formCalculator = document.querySelector('#result-calculator')
-
+event.preventDefault() 
 // SOMA DATA
 let sumTimeMonth = Number(
 (Number(dataForm.dayInvest)/30) + 
@@ -74,38 +77,50 @@ let resultInterestIR = 0
 if(sumTimeMonth <= 6){
   resultInterestIR = juros * 0.225 
 } else if(sumTimeMonth <= 12){
-  resultInterestIR = juros * 0.20
+  resultInterestIR = juros * 0.20 
 } else {
   resultInterestIR = juros * 0.175
 }
 
-console.log('Imposto de renda: '+ resultInterestIR)
+let valueIR = resultInterestIR
 
 // JUROS IOF (IMPOSTO SOBRE OPERAÇÕES FINANCEIRAS)
-const rateIOF = [0,0.96,0.93,0.90,0.86,0.83,0.80,0.76,0.73,0.70,0.66,0.63,0.60,0.56,0.53,0.50,0.46,0.43,0.40,0.36,0.33,0.30,0.26,0.23,0.20,0.16,0.13,0.10,0.06,0.03,0]
-
 let resultInterestIOF = 0
 
-if( (sumTimeMonth*30) <= 29 ){
-   resultInterestIOF = Number(resultInterestIR) * Number(rateIOF[sumTimeMonth*30])  
-} else {
-   resultInterestIOF = Number(resultInterestIR)
-}
+let valueImpost = 0
 
-let liquidReturn = grossReturn - resultInterestIOF
+const rateIOF = [0,0.96,0.93,0.90,0.86,0.83,0.80,0.76,0.73,0.70,0.66,0.63,0.60,0.56,0.53,0.50,0.46,0.43,0.40,0.36,0.33,0.30,0.26,0.23,0.20,0.16,0.13,0.10,0.06,0.03,0]
+
+if( (sumTimeMonth*30) <= 29 ){
+   resultInterestIOF = Number(juros - resultInterestIR) * Number(rateIOF[sumTimeMonth*30])
+
+   valueImpost = valueIR + resultInterestIOF
+ 
+} else {
+   valueImpost = resultInterestIR
+}
+// RESULTADO LIQUIDO
+let liquidReturn = grossReturn - valueImpost
 
 // RESULTADO
+const formCalculator = document.querySelector('#result-calculator')
+
 formCalculator.innerHTML = 
 `<div class="card bg-dark mt-3">
 <div class="card-body">
+<p>Impostos: </p>
+<p>IR: R$ ${valueIR.toFixed(2).replace('.',',')}</p>
+<p>IOF: R$ ${resultInterestIOF.toFixed(2).replace('.',',')}</p>
+<hr/>
+<p>Resultados:</p>
 <p>Retorno Bruto: <b>R$ ${grossReturn.toFixed(2).replace('.',',')}</b></p>
-<p>Imposto de Renda: <b>R$ ${resultInterestIOF.toFixed(2).replace('.',',')}</b></p>
-<p>Retorno Líquido: <b>R$ ${liquidReturn.toFixed(2).replace('.',',')}</b></p>
+<p>Imposto de Renda: <b>R$ ${valueImpost.toFixed(2).replace('.',',')}</b></p>
+<hr/>
+<h5>Retorno Líquido: <b>R$ ${liquidReturn.toFixed(2).replace('.',',')}</b></h5>
 </div>
 </div>` 
-
-event.preventDefault()
-}
+ 
+} 
 
 /* PAGE */
   return (
@@ -155,29 +170,30 @@ event.preventDefault()
       <form className="card-body" id="form-calculator">
         <div className="mb-3">
           <label htmlFor="valueInvest">Valor investimento</label>
-          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1" placeholder="Ex: 1000" onChange={handleDataForm} required/>
+          <input type="number" id="valueInvest" name="valueInvest" className="form-control bg-dark text-white mt-1" placeholder="Ex: 1000" onChange={handleDataForm} min="0" required/>
         </div> 
           
         <label htmlFor="prazo">Prazo</label>
         <div className="input-group mb-3 mt-1">
           <span className="input-group-text">Dia</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" value={dataForm.dayInvest} onChange={handleDataForm} required/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 30" aria-label="Dia investimento" name="dayInvest" value={dataForm.dayInvest} onChange={handleDataForm} min="0"  required/>
           <span className="input-group-text">Mês</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 12" aria-label="Mês investimento" name="monthInvest" value={dataForm.monthInvest} onChange={handleDataForm} required/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 12" aria-label="Mês investimento" name="monthInvest" value={dataForm.monthInvest} onChange={handleDataForm} min="0"  required/>
           <span className="input-group-text">Ano</span>
-          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 1" aria-label="Ano investimento" name="yearInvest" value={dataForm.yearInvest} onChange={handleDataForm} required/>
+          <input type="number" className="form-control bg-dark text-white" placeholder="Ex: 1" aria-label="Ano investimento" name="yearInvest" value={dataForm.yearInvest} onChange={handleDataForm} min="0"  required/>
         </div>
  
         <div className="mb-3">
           <label htmlFor="taxSelic">Taxa selic</label>
-          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm} required/>
+          <input type="number" id="taxSelic" name="taxSelic" className="form-control bg-dark text-white mt-1" placeholder="Ex: 6.25" value={dataForm.taxSelic} onChange={handleDataForm}  required/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="taxCDB">Taxa do CDB/LC</label>
-          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm} required/>
+          <input type="number" id="taxCDB" name="taxCDB" className="form-control bg-dark text-white mt-1" placeholder="Ex: 200" value={dataForm.taxCDB} onChange={handleDataForm} min="0"  required/>
         </div>
          
+        {/* OPÇÕES INVESTIMENTOS */}
         <div className="d-flex">
           <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center border border-light" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest1.cdi,}) })}>
           <Image src={invest1.image} alt={invest1.empresa} width="30px" height="30px"/>
@@ -193,7 +209,7 @@ event.preventDefault()
           
           </div>
             <hr />
-        <button className="btn btn-light" onClick={calculatorInvest}>Calcular investimento</button>
+        <button className="btn btn-light" onClick={calculatorInvest} >Calcular investimento</button>
           <div id="result-calculator">
           
           </div>
