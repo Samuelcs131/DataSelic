@@ -14,7 +14,7 @@ const myRouter = useRouter()
         </a>
       </Link>
       
-      <ul className="nav nav-pills">
+      <ul className="nav nav-pills justify-content-center">
         <li className="nav-item">
         <Link href="/">
         <a className={myRouter.pathname == "/" ? "nav-link active":"nav-link text-white"}>Home</a></Link></li>
