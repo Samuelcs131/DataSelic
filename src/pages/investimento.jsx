@@ -161,7 +161,7 @@ export async function getStaticProps(context) {
   companie =>  companie.empresa == 'Genial')[0]
   
   const sixInvest = companiesData.filter(
-  companie =>  companie.empresa == '99 Pay')[0]
+  companie =>  companie.empresa == 'Picpay')[0]
 
 
   return {

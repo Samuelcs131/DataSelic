@@ -17,6 +17,9 @@ const effectiveInterest = (dataSelic.replace(',','.') - dataIPCA.replace(',','.'
 const invest1 = companiesData.filter(companie =>  companie.empresa == '99 Pay')[0]
 const invest2 = companiesData.filter(companie =>  companie.empresa == 'Pagbank')[0]
 const invest3 = companiesData.filter(companie =>  companie.empresa == 'XP investimentos')[0]
+const invest4 = companiesData.filter(companie =>  companie.empresa == 'Bmg')[0]
+const invest5 = companiesData.filter(companie =>  companie.empresa == 'Genial')[0]
+const invest6 = companiesData.filter(companie =>  companie.empresa == 'Picpay')[0]
 
 /* DADOS INPUT */
 const [dataForm, setDataForm] = useState({
@@ -206,15 +209,27 @@ formCalculator.innerHTML =
         {/* OPÇÕES INVESTIMENTOS */}
         <div className="d-flex">
           <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center border border-light" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest1.cdi,}) })}>
-          <Image src={invest1.image} alt={invest1.empresa} width="30px" height="30px"/>
+          <Image src={invest1.image} alt={invest1.empresa} width="30px" height="30px" title={invest1.empresa}/>
           </div>
 
           <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest2.cdi,}) })}>
-          <Image src={invest2.image} alt={invest2.empresa} width="35px" height="35px" />
+          <Image src={invest2.image} alt={invest2.empresa} width="35px" height="35px" title={invest2.empresa}/>
           </div>
 
           <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest3.cdi,}) })}>
-          <Image src={invest3.image} alt={invest3.empresa} width="30px" height="30px" />
+          <Image src={invest3.image} alt={invest3.empresa} width="30px" height="30px" title={invest3.empresa}/>
+          </div> 
+          
+          <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest4.cdi,}) })}>
+          <Image src={invest4.image} alt={invest4.empresa} width="30px" height="30px" title={invest4.empresa} />
+          </div> 
+          
+          <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest5.cdi,}) })}>
+          <Image src={invest5.image} alt={invest5.empresa} width="32px" height="32px" title={invest5.empresa} />
+          </div> 
+          
+          <div className="option-invest bg-dark d-flex  rounded-circle align-items-center me-3 justify-content-center" style={sizeOptionInvest} onClick={()=> setDataForm(alog =>{ return ({...alog, ['taxCDB']:invest6.cdi,}) })}>
+          <Image src={invest6.image} alt={invest6.empresa} width="30px" height="30px" title={invest6.empresa} />
           </div> 
           
           </div>

@@ -1,11 +1,13 @@
 [
     {"empresa": "99 Pay","cdi": "220", "prazo": "Indefinido", "vMin": 1, "vMax": 5000, "liquidez": true, "fgc": false, "conta": "Todos", "site": "https://99app.com/99pay/lucros/", "image": "/img/99pay.svg"},
 
-    {"empresa": "Genial","cdi": "220", "prazo": "3 meses", "vMin": 10, "vMax": 10000, "liquidez": false, "fgc": true, "conta": "Novos clientes", "site": "https://lp.genialinvestimentos.com.br/cdb-220/"},
+    {"empresa": "Genial","cdi": "220", "prazo": "3 meses", "vMin": 10, "vMax": 10000, "liquidez": true, "fgc": true, "conta": "Novos clientes", "site": "https://lp.genialinvestimentos.com.br/cdb-220/", "image": "/img/genial.png"},
 
     {"empresa": "Pagbank","cdi": "200", "prazo": "3 meses", "vMin": 1, "vMax": 5000, "liquidez": true, "fgc": true, "conta": "Todos", "site": "https://pagseguro.uol.com.br/conta-digital/paginvest/aplicar-meu-dinheiro", "image": "/img/pagbank.png"},
 
-    {"empresa": "XP investimentos","cdi": "300", "prazo": "3 meses", "vMin": 500, "vMax": 10000, "liquidez": false, "fgc": true, "conta": "Novos clientes", "site": "https://www.xpi.com.br/investimentos/renda-fixa/cdb/", "image": "/img/xp.svg"},
+    {"empresa": "XP investimentos","cdi": "300", "prazo": "3 meses", "vMin": 500, "vMax": 7000, "liquidez": false, "fgc": true, "conta": "Novos clientes", "site": "https://www.xpi.com.br/investimentos/renda-fixa/cdb/", "image": "/img/xp.svg"},
     
-    {"empresa": "Bmg","cdi": "110", "prazo": "3 anos", "vMin": 50, "vMax": 100000, "liquidez": false, "fgc": true, "conta": "Todos", "site": "https://www.bancobmg.com.br/investimentos/renda-fixa/cdb/superpoup.htm"}
+    {"empresa": "Bmg","cdi": "110", "prazo": "3 anos", "vMin": 50, "vMax": 999997, "liquidez": true, "fgc": true, "conta": "Todos", "site": "https://www.bancobmg.com.br/investimentos/renda-fixa/cdb/superpoup.htm", "image": "/img/bmg.png"},
+
+    {"empresa": "Picpay","cdi": "120", "prazo": "Indefinido", "vMin": 1, "vMax": 250000, "liquidez": true, "fgc": false, "conta": "Todos", "site": "https://rendimentos.picpay.com/", "image": "/img/picpay.webp"}
 ]
