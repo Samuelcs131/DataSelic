@@ -25,8 +25,8 @@ const myRouter = useRouter()
         <Link href="/calculadora">
         <a className={myRouter.pathname == "/calculadora" ? "nav-link active":"nav-link text-white"}>Calculadora</a></Link></li>
         <li className="nav-item">
-        <Link href="/moedas">
-        <a className={myRouter.pathname == "/moedas" ? "nav-link active":"nav-link text-white"}>Moedas</a></Link></li>
+        <Link href="/apis">
+        <a className={myRouter.pathname == "/apis" ? "nav-link active":"nav-link text-white"}>APIs</a></Link></li>
       </ul>
     </header>
      );

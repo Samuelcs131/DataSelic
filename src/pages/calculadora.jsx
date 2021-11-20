@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import Image from 'next/image'
 import companiesData from '../../public/empresas.json'
+import Swal from "sweetalert2";
 
 
 const App = ({dataSelic, dataIPCA, companiesData}) => { 
@@ -53,11 +54,22 @@ useEffect(()=>{
   
 function calculatorInvest(event){
 event.preventDefault() 
+
 // SOMA DATA
 let sumTimeMonth = Number(
-(Number(dataForm.dayInvest)/30) + 
- Number(dataForm.monthInvest) + 
-(Number(dataForm.yearInvest)*12))
+  (Number(dataForm.dayInvest)/30) + 
+   Number(dataForm.monthInvest) + 
+  (Number(dataForm.yearInvest)*12))
+
+if(dataForm.taxSelic == '' || dataForm.taxCDB == '' || sumTimeMonth == 0 || dataForm.valueInvest == ''){
+  Swal.fire({
+    icon: 'warning',
+    title: 'Atenção jovem!',
+    text: 'Todos os campos devem ser preenchidos!',
+    confirmButtonColor: '#0d6efd' 
+  })  
+} else {
+
 
 // SOMA DA TAXA SELIC
 let sumInterestRate =  Number(
@@ -115,8 +127,9 @@ formCalculator.innerHTML =
 <hr/>
 <h5>Retorno Líquido: <b>R$ ${liquidReturn.toFixed(2).replace('.',',')}</b></h5>
 </div>
-</div>` 
- 
+</div>`
+
+}
 } 
 
 /* PAGE */
