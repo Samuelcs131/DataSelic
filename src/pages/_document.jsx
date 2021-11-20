@@ -13,6 +13,7 @@ class MyDocument extends Document {
         <meta name="description" content="Calcula investimento"/>
         <meta name="keywords" content="Selic, CDB, LCI, LCA"/>
         <meta name="author" content="Samuel Claudino"/>
+        <meta name="theme-color" content="#343a40" />
         <link  href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
         <link rel="shortcut icon" href="/img/logo-dataselic.svg" type="image/x-icon" />
         </Head>
