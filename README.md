@@ -4,7 +4,7 @@ A aplicação tem o intuito de ajudar novos investidores a escolher e simular os
 
 
 <p align="center">
-<img width="600" src="/" />
+<img width="600" src="https://github.com/Samuelcs131/DataSelic/blob/main/dataSelic.gif" alt="demonstração site dataselic" />
 </p>
 
 
