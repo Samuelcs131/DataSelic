@@ -1,7 +1,11 @@
-## DataSelic
-Um site com os melhores tipos de investimentos de 2021
+# [DataSelic](https://data-selic.vercel.app/)
+A aplicação tem o intuito de ajudar novos investidores a escolher e simular os melhores investimentos a curto prazo de forma fácil e prática. O projeto foi desenvolvido com Next.js, Axios e Bootstrap. Utilizando o conceito de SSG na aplicação. [Acessar projeto](https://data-selic.vercel.app/)
 
-[Acessar DataSelic](https://data-selic.vercel.app/)
+
+
+<p align="center">
+<img width="600" src="/" />
+</p>
 
 
 
