@@ -15,7 +15,7 @@ class MyDocument extends Document {
         <meta name="author" content="Samuel Claudino"/>
         <meta name="copyright" content="Samuel Claudino 2021"/>
         <meta name="theme-color" content="#343a40" />
-        <meta httpequiv="content-language" content="pt-br"/>
+        <meta httpEquiv="content-language" content="pt-br"/>
         <meta property="og:title" content="DataSelic" />
         <meta property="og:description" content="Melhores investimentos curto prazo."/>
         <link  href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
