@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import Image from 'next/image'
 import companiesData from '../../public/empresas.json'
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; 
 
 
 const App = ({dataSelic, dataIPCA, companiesData}) => { 
@@ -254,31 +254,43 @@ formCalculator.innerHTML =
   );
 };
 
-export async function getStaticProps(context) {
+export  const getStaticProps = async (context) => {
 
   /* DATA HOJE */
   function datanow(func){ return Intl.DateTimeFormat('pt-BR', func).format()}
 
-  let [day,year,month] = [datanow({day: 'numeric'}), datanow({year: 'numeric'}),datanow({month: 'numeric'})]
+  let [day,year,month] = [datanow({day: 'numeric'}), datanow({year: 'numeric'}),datanow({month: 'numeric'})] 
 
-  let dateShort = day+month+year
+  month.lenght != 1 && (month = '0' + month)
+  day.lenght == 1 && (day = '0' + day) 
 
+  let dateShort = day+month+year 
+
+ 
   // REQUISIÇÕES BANCO CENTRAL BRASIL SELIC
   const dataSelic = await axios.get(`https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados?formato=json&dataInicial=${dateShort}&dataFinal=${dateShort}`) 
   .then(dadosSelic => { 
       let valorSelic = dadosSelic.data[0].valor.replace('.', ',')
       return(valorSelic)
-  })
+  }).catch( error => {console.log(error)})
+
+  // AJUSTE DATA CASO ESTEJA INICIANDO O ANO
+  month == 1 && ( year = year - 1, month = '12' )
+  
 
   // REQUISIÇÃO IBGE IPCA
-  const dataIPCA = await axios.get(`https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/${year+month-1}/d/v63%202`)
+  const dataIPCA = await axios.get(`https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/${year+month}/d/v63%202`)
   .then(dados => {
       return(dados.data[1].V.replace('.',',')) 
-  })
+  }).catch( error => {console.log(error)})
+
+
+  console.log(year+month)
 
   return {
-    props: { dataSelic, dataIPCA, companiesData }
-  }
+    props: { dataSelic, dataIPCA, companiesData },
+    revalidate: 86400 // ATUALIZARA A CADA 24 HORAS
+  } 
 }
 
 
