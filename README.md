@@ -1,5 +1,5 @@
-# [DataSelic](https://data-selic.vercel.app/)
-A aplicação tem o intuito de ajudar novos investidores a escolher e simular os melhores investimentos a curto prazo de forma fácil e prática. O projeto foi desenvolvido com Next.js, Axios e Bootstrap. Utilizando o conceito de SSG na aplicação. [Acessar projeto](https://data-selic.vercel.app/)
+# [DataSelic](https://dataselic.vercel.app/)
+A aplicação tem o intuito de ajudar novos investidores a escolher e simular os melhores investimentos a curto prazo de forma fácil e prática. O projeto foi desenvolvido com Next.js, Axios e Bootstrap. Utilizando o conceito de SSG na aplicação. [Acessar projeto](https://dataselic.vercel.app/)
 
 
 
