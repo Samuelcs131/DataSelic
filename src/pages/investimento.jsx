@@ -17,7 +17,7 @@ const checkIcon = <i aria-hidden className="fas fa-check"></i>
       <Navbar/>
 
       <h1>Melhores Investimentos CDB</h1>
-      <p className="mb-5">Lista dos 3 melhores investimentos a curto prazo 2021</p>
+      <p className="mb-5">Lista dos 3 melhores investimentos a curto prazo 2022</p>
 
 
       {/* INVESTIMENTOS */}
