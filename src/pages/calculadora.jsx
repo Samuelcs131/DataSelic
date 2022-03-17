@@ -8,10 +8,8 @@ import companiesData from '../../public/empresas.json'
 import Swal from "sweetalert2"; 
 
 
-const App = ({dataSelic, dataIPCA, companiesData}) => { 
-
+const Calculadora = ({dataSelic, dataIPCA, companiesData}) => { 
  
-
 /* JUROS EFETIVO */
 const effectiveInterest = (dataSelic.replace(',','.') - dataIPCA.replace(',','.')).toFixed(2).replace('.',',')
 
@@ -254,7 +252,7 @@ formCalculator.innerHTML =
   );
 };
 
-export  const getStaticProps = async (context) => {
+export async function getStaticProps(context) {
 
   /* DATA HOJE */
   function datanow(func){ return Intl.DateTimeFormat('pt-BR', func).format()}
@@ -264,8 +262,7 @@ export  const getStaticProps = async (context) => {
   month.lenght != 1 && (month = '0' + month)
   day.lenght == 1 && (day = '0' + day) 
 
-  let dateShort = day+month+year 
-
+  let dateShort = day+month+year
  
   // REQUISIÇÕES BANCO CENTRAL BRASIL SELIC
   const dataSelic = await axios.get(`https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados?formato=json&dataInicial=${dateShort}&dataFinal=${dateShort}`) 
@@ -274,18 +271,13 @@ export  const getStaticProps = async (context) => {
       return(valorSelic)
   }).catch( error => {console.log(error)})
 
-  // AJUSTE DATA CASO ESTEJA INICIANDO O ANO
-  month == 1 && ( year = year - 1, month = '12' )
-  
+  // RETROCEDER 1 MES
+  month = '0'+ (String(Number(month)-1))
 
   // REQUISIÇÃO IBGE IPCA
-  const dataIPCA = await axios.get(`https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/${year+month}/d/v63%202`)
-  .then(dados => {
+  const dataIPCA = await axios.get(`https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/${year+month}/d/v63%202`).then(dados => {
       return(dados.data[1].V.replace('.',',')) 
   }).catch( error => {console.log(error)})
-
-
-  console.log(year+month)
 
   return {
     props: { dataSelic, dataIPCA, companiesData },
@@ -297,4 +289,4 @@ export  const getStaticProps = async (context) => {
 
 
 
-export default App;
+export default Calculadora;
